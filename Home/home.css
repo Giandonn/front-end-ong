@@ -502,6 +502,69 @@ body.dark #content nav .profile-menu li a {
 	font-weight: 500;
 }
 
+/* Estilo geral da lista */
+.box-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilo de cada item (card) */
+.box-info li {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 350px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 20px;
+}
+
+/* Ícone */
+.box-info i {
+  font-size: 36px;
+  color: #007bff;
+  flex-shrink: 0;
+}
+
+/* Texto do card */
+.box-info .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-info .text h2 {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.box-info .text p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+/* Botão */
+.btn-ajudar {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s;
+}
+
+.btn-ajudar:hover {
+  background-color: #0056b3;
+}
+
 
 
 

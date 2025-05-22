@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - VivaBem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 16px;
+      min-height: 100vh;
+    }
+
+    .cadastro-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .cadastro-logo {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      color: #3B82F6;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #3B82F6;
+    }
+
+    .cadastro-button {
+      background-color: #3B82F6;
+      color: white;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .cadastro-button:hover {
+      background-color: #2563eb;
+    }
+
+    .cadastro-footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .cadastro-footer a {
+      color: #3B82F6;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="cadastro-container">
+    <div class="cadastro-logo">Crie sua conta no VivaBem</div>
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" placeholder="Digite seu nome" required />
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" placeholder="Digite seu e-mail" required />
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" placeholder="Crie uma senha" required />
+      </div>
+      <div class="form-group">
+        <label for="senha">Confirme sua senha:</label>
+        <input type="password" id="Confsenha" placeholder="Confirme sua senha" required />
+      </div>
+      <div class="form-group">
+        <label for="estado">Estado:</label>
+        <input type="text" id="estado" placeholder="Digite seu estado" required />
+      </div>
+      <div class="form-group">
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" placeholder="Digite sua cidade" required />
+      </div>
+      <div class="form-group">
+        <label for="rua">Rua:</label>
+        <input type="text" id="rua" placeholder="Digite sua rua" required />
+      </div>
+      <div class="form-group">
+        <label for="endereco">Número / Complemento:</label>
+        <input type="text" id="endereco" placeholder="Ex: 123 - Apto 2" required />
+      </div>
+      <div class="form-group">
+        <label for="dataNascimento">Data de nascimento:</label>
+        <input type="date" id="dataNascimento" required />
+      </div>
+      <button type="submit" class="cadastro-button">Cadastrar</button>
+    </form>
+    <div class="cadastro-footer">
+      Já tem conta? <a href="login.html">Entrar</a>
+    </div>
+  </div>
+</body>
+</html>
