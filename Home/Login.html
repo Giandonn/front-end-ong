@@ -121,5 +121,35 @@
       Não tem conta? <a href="Cadastro.html">Cadastre-se</a>
     </div>
   </div>
+  <script>
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const senha = document.getElementById('senha').value.trim();
+
+    try {
+      const response = await fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, senha })
+      });
+
+      if (response.ok) {
+        // Login OK: redireciona para página inicial do sistema
+        alert('Login realizado com sucesso!');
+        window.location.href = 'home.html'; // Ajuste para o caminho correto da tela inicial
+      } else {
+        // Login falhou
+        const data = await response.json();
+        alert(data.mensagem || 'Falha no login');
+      }
+    } catch (error) {
+      alert('Erro ao tentar logar: ' + error.message);
+    }
+  });
+</script>
 </body>
 </html>

@@ -97,7 +97,7 @@
 <body>
   <div class="cadastro-container">
     <div class="cadastro-logo">Crie sua conta no VivaBem</div>
-    <form>
+    <form id="cadastroForm">
       <div class="form-group">
         <label for="nome">Nome completo:</label>
         <input type="text" id="nome" placeholder="Digite seu nome" required />
@@ -111,7 +111,7 @@
         <input type="password" id="senha" placeholder="Crie uma senha" required />
       </div>
       <div class="form-group">
-        <label for="senha">Confirme sua senha:</label>
+        <label for="Confsenha">Confirme sua senha:</label>
         <input type="password" id="Confsenha" placeholder="Confirme sua senha" required />
       </div>
       <div class="form-group">
@@ -140,5 +140,62 @@
       Já tem conta? <a href="login.html">Entrar</a>
     </div>
   </div>
+
+  <script>
+    const form = document.getElementById('cadastroForm');
+
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value;
+      const confSenha = document.getElementById('Confsenha').value;
+      const estado = document.getElementById('estado').value.trim();
+      const cidade = document.getElementById('cidade').value.trim();
+      const rua = document.getElementById('rua').value.trim();
+      const endereco = document.getElementById('endereco').value.trim();
+      const dataNascimento = document.getElementById('dataNascimento').value;
+
+      if (senha !== confSenha) {
+        alert('As senhas não coincidem!');
+        return;
+      }
+
+      const numero = endereco;
+
+      const payload = {
+        nome,
+        email,
+        senha,
+        estado,
+        cidade,
+        rua,
+        numero,
+        dataNascimento
+      };
+
+      try {
+        const response = await fetch('http://localhost:3000/api/usuarios', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert('Usuário cadastrado com sucesso!');
+          form.reset();
+          window.location.href = "Login.html";
+        } else {
+          alert(data.mensagem || 'Erro ao cadastrar usuário!');
+        }
+      } catch (err) {
+        console.error('Erro:', err);
+        alert('Erro na requisição!');
+      }
+    });
+  </script>
 </body>
 </html>
