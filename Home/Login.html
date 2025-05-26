@@ -121,7 +121,7 @@
       Não tem conta? <a href="Cadastro.html">Cadastre-se</a>
     </div>
   </div>
-  <script>
+<script>
   const form = document.querySelector('form');
 
   form.addEventListener('submit', async (e) => {
@@ -137,13 +137,14 @@
         body: JSON.stringify({ email, senha })
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        // Login OK: redireciona para página inicial do sistema
+        const usuarioId = data.usuario.id;
+        localStorage.setItem('usuarioId', usuarioId);  // <-- AGORA GUARDA CERTO!
         alert('Login realizado com sucesso!');
-        window.location.href = 'home.html'; // Ajuste para o caminho correto da tela inicial
+        window.location.href = 'home.html';  // Ajusta o caminho se precisar
       } else {
-        // Login falhou
-        const data = await response.json();
         alert(data.mensagem || 'Falha no login');
       }
     } catch (error) {

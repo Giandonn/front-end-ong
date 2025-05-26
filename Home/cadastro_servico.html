@@ -53,7 +53,7 @@
       color: #374151;
     }
 
-    .form-group input, .form-group textarea {
+    .form-group textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #d1d5db;
@@ -63,7 +63,7 @@
       resize: vertical;
     }
 
-    .form-group input:focus, .form-group textarea:focus {
+    .form-group textarea:focus {
       border-color: #3B82F6;
     }
 
@@ -120,7 +120,7 @@
       e.preventDefault();
 
       const descricao = document.getElementById('descricao').value.trim();
-      const usuarioId = localStorage.getItem('usuarioId'); // Pega o ID do usuário logado (supondo que vc salvou no login)
+      const usuarioId = localStorage.getItem('usuarioId');
 
       if (!usuarioId) {
         alert('Usuário não autenticado.');
@@ -131,7 +131,7 @@
         const response = await fetch('http://localhost:3000/api/servicos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ descricao, usuarioId })
+          body: JSON.stringify({ descricao, usuarioId: usuarioId })  // <-- Correção aqui!
         });
 
         if (response.ok) {
