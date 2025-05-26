@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastrar Serviço - VivaBem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .service-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .service-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 24px;
+      font-weight: 600;
+      color: #3B82F6;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      outline: none;
+      transition: border 0.2s;
+      resize: vertical;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: #3B82F6;
+    }
+
+    .service-button {
+      background-color: #3B82F6;
+      color: white;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .service-button:hover {
+      background-color: #2563eb;
+    }
+
+    .service-footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .service-footer a {
+      color: #3B82F6;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="service-container">
+    <div class="service-logo">
+      <span class="text">Precisa de Ajuda?</span>
+    </div>
+    <form id="serviceForm">
+      <div class="form-group">
+        <label for="descricao">Descrição do Serviço</label>
+        <textarea id="descricao" rows="4" placeholder="Descreva o serviço..." required></textarea>
+      </div>
+      <button type="submit" class="service-button">Cadastrar</button>
+    </form>
+    <div class="service-footer">
+      <a href="home.html">Voltar para a Home</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('serviceForm');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const descricao = document.getElementById('descricao').value.trim();
+      const usuarioId = localStorage.getItem('usuarioId'); // Pega o ID do usuário logado (supondo que vc salvou no login)
+
+      if (!usuarioId) {
+        alert('Usuário não autenticado.');
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:3000/api/servicos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ descricao, usuarioId })
+        });
+
+        if (response.ok) {
+          alert('Serviço cadastrado com sucesso!');
+          form.reset();
+        } else {
+          const data = await response.json();
+          alert(data.mensagem || 'Erro ao cadastrar serviço.');
+        }
+      } catch (error) {
+        alert('Erro ao cadastrar serviço: ' + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

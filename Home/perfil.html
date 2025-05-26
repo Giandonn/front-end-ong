@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil do Idoso - VivaBem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .profile-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #3B82F6;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .profile-info {
+      margin-bottom: 16px;
+    }
+
+    .profile-info label {
+      display: block;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+
+    .profile-info span {
+      display: block;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      background-color: #f9fafb;
+      color: #374151;
+    }
+
+    .profile-footer {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .profile-footer a {
+      color: #3B82F6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-header">Perfil</div>
+
+    <div class="profile-info">
+      <label>Nome</label>
+      <span id="nome">Carregando...</span>
+    </div>
+
+    <div class="profile-info">
+      <label>Idade</label>
+      <span id="idade">Carregando...</span>
+    </div>
+
+    <div class="profile-info">
+      <label>Email</label>
+      <span id="email">Carregando...</span>
+    </div>
+
+    <div class="profile-info">
+      <label>Telefone</label>
+      <span id="telefone">Carregando...</span>
+    </div>
+
+    <div class="profile-footer">
+      <a href="home.html">Voltar para a Home</a>
+    </div>
+  </div>
+
+  <script>
+    // Simula o carregamento dos dados
+    const idoso = {
+      nome: 'João da Silva',
+      idade: 72,
+      email: 'joao.silva@exemplo.com',
+      telefone: '(11) 99999-9999'
+    };
+
+    document.getElementById('nome').textContent = idoso.nome;
+    document.getElementById('idade').textContent = idoso.idade + ' anos';
+    document.getElementById('email').textContent = idoso.email;
+    document.getElementById('telefone').textContent = idoso.telefone;
+
+    // Se quiser, pode carregar via fetch também, só me falar que eu adapto.
+  </script>
+</body>
+</html>
