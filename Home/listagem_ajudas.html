@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minhas Ajudas - VivaBem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body style="margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; background-color: #f4f4f5; min-height: 100vh;">
+
+  <div style="max-width: 800px; margin: 0 auto; padding: 24px;">
+    <!-- Cabeçalho -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <i class='bx bxs-hand' style="font-size: 28px; color: #3B82F6;"></i>
+        <h1 style="font-size: 24px; font-weight: 600; color: #3B82F6;">Minhas Ajudas</h1>
+      </div>
+      <a href="cadastro_servico.html" style="background-color: #3B82F6; color: white; padding: 10px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+        <i class='bx bx-plus'></i> Nova Ajuda
+      </a>
+    </div>
+
+    <!-- Filtros -->
+    <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+      <select style="padding: 10px 12px; border-radius: 12px; border: 1px solid #d1d5db; outline: none; flex: 1;">
+        <option>Todas as categorias</option>
+        <option>Compras</option>
+        <option>Saúde</option>
+        <option>Reparos</option>
+        <option>Educação</option>
+      </select>
+      <select style="padding: 10px 12px; border-radius: 12px; border: 1px solid #d1d5db; outline: none; flex: 1;">
+        <option>Todos os status</option>
+        <option>Pendente</option>
+        <option>Em andamento</option>
+        <option>Concluído</option>
+      </select>
+    </div>
+
+    <!-- Lista de Ajudas -->
+    <div style="background-color: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); overflow: hidden;">
+      <!-- Cabeçalho da lista -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr ; padding: 16px 24px; background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;">
+        <div style="font-weight: 600; color: #374151;">Descrição</div>
+        <div style="font-weight: 600; color: #374151;">Status</div>
+        <div style="font-weight: 600; color: #374151;">Ações</div>
+      </div>
+
+      <!-- Item 1 -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 16px 24px; border-bottom: 1px solid #e5e7eb; align-items: center;">
+        <div>
+          <div style="font-weight: 500; margin-bottom: 4px;">Ajuda com compras de supermercado</div>
+          <div style="font-size: 14px; color: #6b7280;">Criado em: 10/06/2023</div>
+        </div>
+        <div>
+          <span style="background-color: #ecfdf5; color: #059669; padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: 500;">
+            Concluído
+          </span>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <button style="background: none; border: none; cursor: pointer; color: #3B82F6;">
+            <i class='bx bx-show'></i>
+          </button>
+          <button style="background: none; border: none; cursor: pointer; color: #3B82F6;">
+            <i class='bx bx-edit'></i>
+          </button>
+          <button style="background: none; border: none; cursor: pointer; color: #ef4444;">
+            <i class='bx bx-trash'></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 16px 24px; border-bottom: 1px solid #e5e7eb; align-items: center;">
+        <div>
+          <div style="font-weight: 500; margin-bottom: 4px;">Acompanhamento médico</div>
+          <div style="font-size: 14px; color: #6b7280;">Criado em: 15/06/2023</div>
+        </div>
+        <div>
+          <span style="background-color: #fef3c7; color: #d97706; padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: 500;">
+            Pendente
+          </span>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <button style="background: none; border: none; cursor: pointer; color: #3B82F6;">
+            <i class='bx bx-show'></i>
+          </button>
+          <button style="background: none; border: none; cursor: pointer; color: #3B82F6;">
+            <i class='bx bx-edit'></i>
+          </button>
+          <button style="background: none; border: none; cursor: pointer; color: #ef4444;">
+            <i class='bx bx-trash'></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Rodapé -->
+    <div style="text-align: center; margin-top: 24px; color: #6b7280; font-size: 14px;">
+      <a href="home.html" style="color: #3B82F6; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+        <i class='bx bx-arrow-back'></i> Voltar para a Home
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Simulação de dados - você substituiria por uma chamada API real
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        // Simulando uma chamada à API
+        // const response = await fetch('http://localhost:3000/api/ajudas');
+        // const ajudas = await response.json();
+        
+        // Aqui você processaria os dados reais da API
+        // renderAjudas(ajudas);
+      } catch (error) {
+        console.error('Erro ao carregar ajudas:', error);
+      }
+    });
+
+    function renderAjudas(ajudas) {
+      // Função para renderizar dinamicamente as ajudas
+      // Você implementaria a lógica para criar os elementos HTML aqui
+    }
+  </script>
+</body>
+</html>
